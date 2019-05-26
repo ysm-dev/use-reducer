@@ -15,7 +15,8 @@
     "react",
     "hooks",
     "use-reducer",
-    "reducer"
+    "reducer",
+    "react-hooks"
   ],
   "author": {
     "name": "Chris Yang",
@@ -23,6 +24,10 @@
     "url": "https://ysm.sh/"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ysm0622/use-reducer.git"
+  },
   "dependencies": {
     "react": "^16.8.0"
   },
