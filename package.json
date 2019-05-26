@@ -1,0 +1,39 @@
+{
+  "name": "use-reducer",
+  "version": "0.0.1",
+  "description": "Simplified React hook useReducer",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "NODE_ENV=production parcel build ./lib/index.js --no-source-maps",
+    "format": "prettier --write 'lib/*.js'",
+    "lint": "eslint lib",
+    "test": "jest test"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "use-reducer",
+    "reducer"
+  ],
+  "author": {
+    "name": "Chris Yang",
+    "email": "ysm0622@gmail.com",
+    "url": "https://ysm.sh/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-jest": "^24.8.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "jest": "^24.8.0",
+    "parcel": "^1.12.3",
+    "prettier": "^1.17.1",
+    "react-hooks-testing-library": "^0.5.0",
+    "react-test-renderer": "^16.8.6"
+  }
+}
