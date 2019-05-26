@@ -1,13 +1,15 @@
 {
-  "name": "use-reducer",
+  "name": "use-reducer2",
   "version": "0.0.1",
   "description": "Simplified React hook useReducer",
   "main": "./lib/index.js",
   "scripts": {
+    "clean": "rimraf dist",
     "build": "NODE_ENV=production parcel build ./lib/index.js --no-source-maps",
     "format": "prettier --write 'lib/*.js'",
     "lint": "eslint lib",
-    "test": "jest test"
+    "test": "jest test",
+    "prepare": "npm run clean && npm run lint && npm run test && npm run build"
   },
   "keywords": [
     "react",
@@ -22,9 +24,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "react": "^16.8.6"
+    "react": "^16.8.0"
   },
   "devDependencies": {
+    "rimraf": "^2.6.3",
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "babel-jest": "^24.8.0",
@@ -34,6 +37,6 @@
     "parcel": "^1.12.3",
     "prettier": "^1.17.1",
     "react-hooks-testing-library": "^0.5.0",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.0"
   }
 }
