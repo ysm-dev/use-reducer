@@ -1,0 +1,1 @@
+# Simplified React hook: useReducer
