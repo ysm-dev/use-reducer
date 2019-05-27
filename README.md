@@ -1,4 +1,4 @@
-# useReducer2 - Simplified React hook useReducer
+# useReducer2 - Simplified useReducer React hook
 
 This library is a custom hook of [hooks API](https://reactjs.org/docs/hooks-intro.html) added in React 16.8.0.
 
@@ -40,11 +40,11 @@ function Counter() {
 
 This looks great, but there are a few drawbacks.
 
-- It use `switch-case` statement. I think this is a bit verbose. This can be replaced by a simple object literal. (Related post: [Rewriting Javascript : Replacing the Switch Statement](https://medium.com/chrisburgin/rewriting-javascript-replacing-the-switch-statement-cfff707cf045))
+- It uses `switch-case` statement. I think this is a bit verbose. This can be replaced by a simple object literal. (Related post: [Rewriting Javascript : Replacing the Switch Statement](https://medium.com/chrisburgin/rewriting-javascript-replacing-the-switch-statement-cfff707cf045))
 
 - There are many duplicated and unnecessary boilerplates. For example, you should always pass an object with the action `type` string to the `dispatch` function. And you also need to write `{... state, ...}` every time to merge with the previous state in the `reducer` function.
 
-This new useReducer solves these problems through simplify the `reducer` and `dispatch`.
+This new useReducer solves these problems through simplifying the `reducer` and `dispatch`.
 
 ## Requirement
 
@@ -126,7 +126,7 @@ render(<App />, document.getElementById('root'))
 
 ## Features
 
-The reducer function takes a state, and returns an object literal with actions.
+The reducer function takes a state and returns an object literal with actions.
 
 ```js
 const reducer = state => ({
@@ -144,7 +144,7 @@ This partial state automatically **`shallow merge`** to the state.
 This pattern was inspired by [hyperapp](https://github.com/jorgebucaran/hyperapp).
 
 Now, since the `dispatch` returned by useReducer is an object, not a function.
-So, you can destructuring and pull out the actions only you need as follows:
+So, you can destructure and pull out the actions only you need as follows:
 
 ```js
 const App = () => {
