@@ -1,6 +1,6 @@
 {
   "name": "use-reducer2",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Simplified React hook useReducer",
   "main": "./lib/index.js",
   "scripts": {
