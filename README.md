@@ -63,7 +63,7 @@ Example: [CodeSandBox](https://codesandbox.io/s/simple-todo-app-with-usereducer2
 ```js
 import React, { memo } from 'react'
 import { render } from 'react-dom'
-import useReducer from 'use-reducer2'
+import useReducer from './use-reducer2'
 
 const newTodo = value => ({
   id: Date.now().toString(),
@@ -71,14 +71,16 @@ const newTodo = value => ({
   done: false,
 })
 
-const reducer = state => ({
-  addTodo: text => ({ todos: [...state.todos, newTodo(text)] }),
-  removeTodo: id => ({ todos: state.todos.filter(todo => todo.id !== id) }),
-  toggleTodo: id => ({
+const reducer = {
+  addTodo: text => state => ({ todos: [...state.todos, newTodo(text)] }),
+  removeTodo: id => state => ({
+    todos: state.todos.filter(todo => todo.id !== id),
+  }),
+  toggleTodo: id => state => ({
     todos: state.todos.map(todo => (todo.id !== id ? todo : { ...todo, done: !todo.done })),
   }),
   setInputText: text => ({ inputText: text }),
-})
+}
 
 const intialState = {
   inputText: '',
@@ -126,21 +128,25 @@ render(<App />, document.getElementById('root'))
 
 ## Features
 
-The reducer function takes a state and returns an object literal with actions.
+The reducer is an object literal with actions.
 
 ```js
-const reducer = state => ({
-  addTodo: text => ({ todos: [...state.todos, newTodo(text)] }),
-  removeTodo: id => ({ todos: state.todos.filter(todo => todo.id !== id) }),
-  toggleTodo: id => ({
+const reducer = {
+  addTodo: text => state => ({ todos: [...state.todos, newTodo(text)] }),
+  removeTodo: id => state => ({
+    todos: state.todos.filter(todo => todo.id !== id),
+  }),
+  toggleTodo: id => state => ({
     todos: state.todos.map(todo => (todo.id !== id ? todo : { ...todo, done: !todo.done })),
   }),
   setInputText: text => ({ inputText: text }),
-})
+}
 ```
 
 Each key(action name) in this object is a function that takes a payload and returns a partial state.
+If you need previous state for new partial state, then return the function that takes previous state returns new state.
 This partial state automatically **`shallow merge`** to the state.
+So you don't need to manually write `{ ...state, ... }` every time.
 This pattern was inspired by [hyperapp](https://github.com/jorgebucaran/hyperapp).
 
 Now, since the `dispatch` returned by useReducer is an object, not a function.
