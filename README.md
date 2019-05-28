@@ -63,7 +63,7 @@ Example: [CodeSandBox](https://codesandbox.io/s/simple-todo-app-with-usereducer2
 ```js
 import React, { memo } from 'react'
 import { render } from 'react-dom'
-import useReducer from './use-reducer2'
+import useReducer from 'use-reducer2'
 
 const newTodo = value => ({
   id: Date.now().toString(),
